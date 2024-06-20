@@ -28,3 +28,10 @@ const generateSVG = (answers) => {
     }
   })
 }
+
+// Prompt inquirer questions then generate SVG file
+inquirer.prompt(questions).then((answers) => {
+  generateSVG(answers)
+}).catch((error) => {
+  console.log(error)
+});
