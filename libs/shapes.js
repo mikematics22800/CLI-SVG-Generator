@@ -4,12 +4,6 @@ export class Shape {
     this.textColor = textColor;
     this.shapeColor = shapeColor;
   }
-  svg() {
-    return `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">`
-  }
-  svgText() {
-    return `<text x="50%" y="50%" font-size="80" dominant-baseline="middle" text-anchor="middle" fill="${this.textColor}">${this.text}</text>`
-  }
 }
 
 export class Triangle extends Shape {
@@ -17,7 +11,12 @@ export class Triangle extends Shape {
     super(text, textColor, shapeColor);
   }
   render() {
-    return  `${this.svg()}<polygon points="150, 18 244, 182 56, 182" fill="${this.shapeColor}" />${this.svgText()}</svg>`
+    return (
+      `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+        <polygon points="0,200 100,0 200,200" fill="${this.shapeColor}" />
+        <text x="50%" y="60%" font-size="60" dominant-baseline="middle" text-anchor="middle" fill="${this.textColor}">${this.text}</text>
+      </svg>`
+    )
   }
 }
 
@@ -26,7 +25,12 @@ export class Square extends Shape {
     super(text, textColor, shapeColor);
   }
   render() {
-    return `${this.svg()}<rect width="200" height="200" fill="${this.shapeColor}" />${this.svgText()}</svg>`
+    return (
+      `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+        <rect width="200" height="200" fill="${this.shapeColor}" />
+        <text x="50%" y="50%" font-size="80" dominant-baseline="middle" text-anchor="middle" fill="${this.textColor}">${this.text}</text>
+      </svg>`
+    )
   }
 }
 
@@ -35,6 +39,11 @@ export class Circle extends Shape {
     super(text, textColor, shapeColor);
   }
   render() {
-    return `${this.svg()}<circle cx="100" cy="100" r="80" fill="${this.shapeColor}" />${this.svgText()}</svg>`
+    return (
+      `<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+        <circle cx="100" cy="100" r="80" fill="${this.shapeColor}" />        
+        <text x="50%" y="50%" font-size="80" dominant-baseline="middle" text-anchor="middle" fill="${this.textColor}">${this.text}</text>
+      </svg>`
+    )
   }
 }
